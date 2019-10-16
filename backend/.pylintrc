@@ -1,0 +1,10 @@
+[MESSAGES CONTROL]
+# - "C0330" is "Wrong continued indentation": Black formatting generates such messages, so we have to disable them
+# - "line-too-long": ditto
+# - "no-member": it would be great to enable that rule, but it produces too many false positives with libraries as the Django ORM or Graphene :-/
+# - "len-as-condition": we have to disable that one because of Graphene's magic, which is not correctly interpreted by Pylint
+# - "duplicate-code": we have some similar code indeed (in some GraphQL mutations for example),
+#    but sadly disabling that rule just for these files doesn't work - @link https://github.com/PyCQA/pylint/issues/214
+# - "fixme": we'll handle TODO items ourselves :-)
+# - "logging-fstring-interpolation": @see https://github.com/PyCQA/pylint/issues/1788 for the pros and cons
+disable=C0330,too-few-public-methods,missing-docstring,line-too-long,no-member,len-as-condition,duplicate-code,fixme,logging-fstring-interpolation
